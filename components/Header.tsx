@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import NavLink from "./NavLink";
 import { MenuIcon } from "@heroicons/react/solid";
 function Header() {
 	const [showMenu, setShowMenu] = useState(false);
+	useEffect(() => {});
 	return (
-		<div className="flex justify-between px-12 lg:px-20 xl:px-32 py-5  items-center ">
+		<div className="z-10 flex justify-between px-12 lg:px-20 xl:px-32 py-5  items-center ">
 			<Logo />
-
 			<div
 				className={
-					"md:flex-grow md:justify-end lg:space-x-9 md:space-x-6 space-y-7 md:space-y-0 absolute md:static left-16 mt-3 md:mt-0 top-16 flex-col md:flex-row md:flex items-center " +
+					" md:flex-grow md:justify-end lg:space-x-9 shadow-md md:shadow-none \
+					 w-full md:space-x-6 space-y-7 md:space-y-0 pb-3 md:pb-0 absolute \
+					  md:static left-0 pl-16 md:pl-0 mt-3 md:mt-0 top-16 flex-col \
+					  md:flex-row md:flex items-center\
+					 " +
 					(showMenu ? "" : "hidden")
 				}
 			>
@@ -21,7 +25,6 @@ function Header() {
 				<NavLink title="Testimonials" href="/" />
 				<NavLink title="Contact" href="/" />
 			</div>
-
 			<div>
 				<MenuIcon
 					onClick={() => {
