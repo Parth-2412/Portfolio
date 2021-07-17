@@ -8,14 +8,14 @@ export default function Home() {
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
 			</Head>
-			<div className="flex items-center px-12 py-16">
-				<div className="space-y-9 max-w-prose">
-					<div className="space-y-4">
-						<div className="text-2xl font-medium">
+			<div className="flex items-center py-16">
+				<div className="space-y-12 max-w-3xl">
+					<div className="space-y-5">
+						<div className="text-3xl font-medium">
 							Hi, my name is Parth
 						</div>
-						<div className="text-4xl font-medium">
-							I am a full stack web developer and bot developer.
+						<div className="text-4xl font-semibold">
+							I'm a full stack web developer and bot developer.
 						</div>
 					</div>
 					<button className="flex space-x-2 items-center rounded-lg text-lg text-primary hover:text-white hover:bg-opacity-90 hover:bg-primary border-2 border-primary py-2 px-4">
