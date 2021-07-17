@@ -6,13 +6,13 @@ function Header() {
 	const [showMenu, setShowMenu] = useState(false);
 	useEffect(() => {});
 	return (
-		<div className="z-10 flex justify-between px-12 lg:px-20 xl:px-32 py-5  items-center ">
+		<div className="bg-white fixed top-0 left-0 right-0 z-10 flex justify-between px-12 lg:px-20 xl:px-32 py-5  items-center ">
 			<Logo />
 			<div
 				className={
-					" md:flex-grow md:justify-end lg:space-x-9 shadow-md md:shadow-none \
+					"bg-white md:flex-grow md:justify-end lg:space-x-9 shadow-md md:shadow-none \
 					 w-full md:space-x-6 space-y-7 md:space-y-0 pb-3 md:pb-0 absolute \
-					  md:static left-0 pl-16 md:pl-0 mt-3 md:mt-0 top-16 flex-col \
+					  md:static left-0 pl-16 md:pl-0 pt-3 md:pt-0 top-16 flex-col \
 					  md:flex-row md:flex items-center\
 					 " +
 					(showMenu ? "" : "hidden")
