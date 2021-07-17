@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import NavLink from "./NavLink";
 import { MenuIcon } from "@heroicons/react/solid";
 function Header() {
 	const [showMenu, setShowMenu] = useState(false);
-	useEffect(() => {});
 	return (
 		<div className="bg-white fixed top-0 left-0 right-0 z-10 flex justify-between px-12 lg:px-20 xl:px-32 py-5  items-center ">
 			<Logo />
