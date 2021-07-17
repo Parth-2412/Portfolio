@@ -8,7 +8,7 @@ export default function Home() {
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
 			</Head>
-			<div className="flex items-center p-12">
+			<div className="flex items-center px-12 py-16">
 				<div className="space-y-9 max-w-prose">
 					<div className="space-y-4">
 						<div className="text-2xl font-medium">
