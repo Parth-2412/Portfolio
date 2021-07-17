@@ -11,8 +11,8 @@ function Header() {
 				<div
 					className={
 						"bg-white md:flex-grow md:justify-end shadow-md md:shadow-none \
-						 w-full md:space-x-7 space-y-7 md:space-y-0 pb-3 md:pb-0 absolute \
-						  md:static left-0 pl-16 md:pl-0 pt-3 md:pt-0 top-16 flex-col \
+						 w-full md:space-x-7 space-y-7 md:space-y-0 pb-4 md:pb-0 absolute \
+						  md:static left-0 pl-16 md:pl-0 pt-5 md:pt-0 top-16 flex-col \
 						  md:flex-row md:flex items-center\
 						 " +
 						(showMenu ? "" : "hidden")
