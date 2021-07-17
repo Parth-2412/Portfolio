@@ -11,6 +11,10 @@ module.exports = {
 				primary: "#7367f0",
 				// primary: "rgb(24,13,138)",
 			},
+			maxWidth: {
+				"8xl": "88rem",
+				"9xl": "96rem",
+			},
 		},
 	},
 	variants: {

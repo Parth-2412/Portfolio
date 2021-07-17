@@ -4,12 +4,14 @@ import "../public/globals.css";
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<>
-			<Header />
-			<div className="mt-16 pt-2">
-				<Component {...pageProps} />
+		<div className="flex justify-center px-12">
+			<div className="max-w-7xl flex-grow">
+				<Header />
+				<div className="mt-32">
+					<Component {...pageProps} />
+				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
