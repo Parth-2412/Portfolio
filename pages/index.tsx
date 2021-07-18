@@ -37,7 +37,7 @@ export default function Home({ services }) {
 				</div>
 			</div>
 			<div id="services" className="services">
-				<div className="text-4xl font-semibold">What I do</div>
+				<div className="text-4xl font-semibold">What I can offer</div>
 				<div className="flex mt-10 justify-center flex-grow">
 					<div className="flex justify-center space-x-5 flex-wrap">
 						{services.map((service) => (
