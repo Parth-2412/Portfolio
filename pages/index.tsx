@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Service from "../components/Service";
 import { GetServerSideProps } from "next";
+import SectionTitle from "../components/SectionTitle";
 
 export default function Home({ services }) {
 	return (
@@ -36,8 +37,9 @@ export default function Home({ services }) {
 					/>
 				</div>
 			</div>
+
 			<div id="services" className="services">
-				<div className="text-4xl font-semibold">What I can offer</div>
+				<SectionTitle title="What I can offer" />
 				<div className="flex mt-10 justify-center flex-grow">
 					<div className="flex justify-center space-x-5 flex-wrap">
 						{services.map((service) => (
@@ -46,6 +48,7 @@ export default function Home({ services }) {
 					</div>
 				</div>
 			</div>
+			<div id="about"></div>
 		</div>
 	);
 }
