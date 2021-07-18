@@ -3,7 +3,7 @@ import IService from "../interfaces/IService";
 
 function Service({ icon, name, description }: IService) {
 	return (
-		<div className="flex w-72 p-5 text-center flex-col items-center">
+		<div className="flex w-72 p-5 my-3 text-center flex-col items-center">
 			<div
 				dangerouslySetInnerHTML={{ __html: icon }}
 				className="w-20 h-20 text-primary"
