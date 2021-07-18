@@ -41,14 +41,16 @@ export default function Home({ services }) {
 			<div id="services" className="services">
 				<SectionTitle title="What I can offer" />
 				<div className="flex mt-10 justify-center flex-grow">
-					<div className="flex justify-center space-x-5 flex-wrap">
+					<div className="flex justify-evenly space-x-5 flex-wrap">
 						{services.map((service) => (
 							<Service key={service.id} {...service} />
 						))}
 					</div>
 				</div>
 			</div>
-			<div id="about"></div>
+			<div id="about">
+				<SectionTitle title="About Me" />
+			</div>
 		</div>
 	);
 }
