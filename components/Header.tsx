@@ -18,12 +18,25 @@ function Header() {
 						(showMenu ? "" : "hidden")
 					}
 				>
-					<NavLink title="Home" href="/" />
-					<NavLink title="About" href="/" />
-					<NavLink title="Services" href="/" />
-					<NavLink title="Projects" href="/" />
-					<NavLink title="Testimonials" href="/" />
-					<NavLink title="Contact" href="/" />
+					{[
+						<NavLink title="Home" href="/" />,
+						<NavLink title="About" href="#about" />,
+						<NavLink title="Services" href="#services" />,
+						<NavLink title="Projects" href="/" />,
+						<NavLink title="Testimonials" href="/" />,
+						<NavLink title="Contact" href="/" />,
+					].map((Link, i) => ({
+						...Link,
+						props: {
+							...Link.props,
+							key: i,
+							onClick: () => {
+								if (showMenu) {
+									setShowMenu(false);
+								}
+							},
+						},
+					}))}
 				</div>
 				<div>
 					<MenuIcon

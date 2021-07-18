@@ -1,3 +1,6 @@
 * {
 	font-family: "MontSerrat";
 }
+html {
+	scroll-behavior: smooth;
+}
