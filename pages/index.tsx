@@ -39,7 +39,7 @@ export default function Home({ services, user }) {
 				</div>
 			</div>
 
-			<div id="services" className="services">
+			<div id="services">
 				<SectionTitle title="What I can offer" />
 				<div className="flex mt-10 justify-center flex-grow">
 					<div className="flex justify-evenly space-x-5 flex-wrap">
@@ -51,7 +51,7 @@ export default function Home({ services, user }) {
 			</div>
 			<div id="about" className="pt-10">
 				<SectionTitle title="About Me" />
-				<div className="p-5 my-8 text-lg">
+				<div className="p-5 my-5 text-lg">
 					Hi there!! I am {user.name}, a {user.age} years old full
 					stack web developer. I really love learning and making new
 					things. That is what encouraged me into programming. My goal
