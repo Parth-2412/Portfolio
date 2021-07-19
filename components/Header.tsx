@@ -27,9 +27,9 @@ function Header() {
 						<NavLink title="Contact" href="/" />,
 					].map((Link, i) => ({
 						...Link,
+						key: i,
 						props: {
 							...Link.props,
-							key: i,
 							onClick: () => {
 								if (showMenu) {
 									setShowMenu(false);
