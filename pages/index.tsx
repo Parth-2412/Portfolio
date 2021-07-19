@@ -5,8 +5,9 @@ import React from "react";
 import Service from "../components/Service";
 import { GetServerSideProps } from "next";
 import SectionTitle from "../components/SectionTitle";
+import { HeartIcon } from "@heroicons/react/outline";
 
-export default function Home({ services }) {
+export default function Home({ services, user }) {
 	return (
 		<div className="space-y-10">
 			<Head>
@@ -17,7 +18,7 @@ export default function Home({ services }) {
 				<div className="space-y-12 max-w-xl">
 					<div className="space-y-5">
 						<div className="text-3xl font-medium">
-							Hi, my name is Parth!!
+							Hi, my name is {user.name}!!
 						</div>
 						<div className="text-4xl font-semibold">
 							I'm a full stack web developer and bot developer.
@@ -48,8 +49,19 @@ export default function Home({ services }) {
 					</div>
 				</div>
 			</div>
-			<div id="about">
+			<div id="about" className="pt-10">
 				<SectionTitle title="About Me" />
+				<div className="p-5 my-8 text-lg">
+					Hi there!! I am {user.name}, a {user.age} years old full
+					stack web developer. I really love learning and making new
+					things. That is what encouraged me into programming. My goal
+					is to become a successful software developer and help people
+					by making useful tools for them.
+					<div className="my-3 flex items-center space-x-2">
+						<HeartIcon className="w-10" />
+						<p>I love programming, football and anime!</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
@@ -61,6 +73,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 	return {
 		props: {
 			services: await (await fetch(baseUrl + "/api/services")).json(),
+			user: await (await fetch(baseUrl + "/api/user")).json(),
 		},
 	};
 };
