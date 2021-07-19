@@ -6,6 +6,7 @@ import Service from "../components/Service";
 import { GetServerSideProps } from "next";
 import SectionTitle from "../components/SectionTitle";
 import { HeartIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 export default function Home({ services, user }) {
 	return (
@@ -24,10 +25,12 @@ export default function Home({ services, user }) {
 							I'm a full stack web developer and bot developer.
 						</div>
 					</div>
-					<button className="flex space-x-2 items-center rounded-lg text-lg text-primary hover:text-white hover:bg-opacity-90 hover:bg-primary border-2 border-primary py-2 px-4">
-						<a href="/#contact">Let's talk</a>
-						<ArrowRightIcon className="w-5" />
-					</button>
+					<Link href="#contact">
+						<button className="flex space-x-2 items-center rounded-lg text-lg text-primary hover:text-white hover:bg-opacity-90 hover:bg-primary border-2 border-primary py-2 px-4">
+							<p>Let's talk</p>
+							<ArrowRightIcon className="w-5" />
+						</button>
+					</Link>
 				</div>
 				<div className="hidden lg:block">
 					<Image
@@ -51,7 +54,7 @@ export default function Home({ services, user }) {
 			</div>
 			<div id="about" className="pt-10">
 				<SectionTitle title="About Me" />
-				<div className="p-5 my-5 text-lg">
+				<div className="py-5 px-8 my-5 text-lg">
 					Hi there!! I am {user.name}, a {user.age} years old full
 					stack web developer. I really love learning and making new
 					things. That is what encouraged me into programming. My goal

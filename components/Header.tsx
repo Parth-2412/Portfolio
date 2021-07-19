@@ -6,7 +6,7 @@ function Header() {
 	const [showMenu, setShowMenu] = useState(false);
 	return (
 		<div className="bg-white fixed top-0 left-0 right-0 z-10 flex justify-center px-12 py-8 items-center ">
-			<div className="flex flex-grow justify-between max-w-7xl">
+			<div className="flex flex-grow justify-between items-center  max-w-7xl">
 				<Logo />
 				<div
 					className={
@@ -20,8 +20,8 @@ function Header() {
 				>
 					{[
 						<NavLink title="Home" href="/" />,
-						<NavLink title="About" href="#about" />,
 						<NavLink title="Services" href="#services" />,
+						<NavLink title="About" href="#about" />,
 						<NavLink title="Projects" href="/" />,
 						<NavLink title="Testimonials" href="/" />,
 						<NavLink title="Contact" href="/" />,

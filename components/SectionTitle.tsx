@@ -3,11 +3,7 @@ interface Props {
 }
 
 function SectionTitle({ title }: Props) {
-	return (
-		<div>
-			<div className="text-4xl font-semibold">{title}</div>
-		</div>
-	);
+	return <div className={"text-4xl font-semibold"}>{title}</div>;
 }
 
 export default SectionTitle;

@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../public/globals.css";
 
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
 				<div className="mt-32">
 					<Component {...pageProps} />
 				</div>
+				<Footer />
 			</div>
 		</div>
 	);
