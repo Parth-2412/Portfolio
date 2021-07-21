@@ -7,10 +7,12 @@ import { GetServerSideProps } from "next";
 import SectionTitle from "../components/SectionTitle";
 import { HeartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import Contact from "../components/Contact";
+import Button from "../components/Button";
 
 export default function Home({ services, user }) {
 	return (
-		<div className="space-y-10">
+		<div className="space-y-20">
 			<Head>
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
@@ -26,10 +28,10 @@ export default function Home({ services, user }) {
 						</div>
 					</div>
 					<Link href="#contact">
-						<button className="flex space-x-2 items-center rounded-lg text-lg text-primary hover:text-white hover:bg-opacity-90 hover:bg-primary border-2 border-primary py-2 px-4">
+						<Button className="text-lg">
 							<p>Let's talk</p>
 							<ArrowRightIcon className="w-5" />
-						</button>
+						</Button>
 					</Link>
 				</div>
 				<div className="hidden lg:block">
@@ -66,6 +68,7 @@ export default function Home({ services, user }) {
 					</div>
 				</div>
 			</div>
+			<Contact />
 		</div>
 	);
 }
