@@ -20,8 +20,8 @@ function Header() {
 				>
 					{[
 						<NavLink title="Home" href="/" />,
-						<NavLink title="Services" href="#services" />,
 						<NavLink title="About" href="#about" />,
+						<NavLink title="Services" href="#services" />,
 						<NavLink title="Projects" href="/" />,
 						<NavLink title="Testimonials" href="/" />,
 						<NavLink title="Contact" href="/" />,
