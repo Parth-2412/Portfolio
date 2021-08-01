@@ -3,14 +3,24 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import Service from "../components/Service";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import SectionTitle from "../components/SectionTitle";
 import { HeartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Contact from "../components/Contact";
 import Button from "../components/Button";
+import Project from "../components/Project";
+import IService from "../interfaces/IService";
+import IUser from "../interfaces/IUser";
+import { IProject } from "../interfaces/IProject";
 
-export default function Home({ services, user }) {
+interface StaticPropsResult {
+	services: IService[];
+	user: IUser;
+	projects: IProject[];
+}
+
+export default function Home({ services, user, projects }: StaticPropsResult) {
 	return (
 		<div className="space-y-20">
 			<Head>
@@ -54,6 +64,14 @@ export default function Home({ services, user }) {
 					</div>
 				</div>
 			</div>
+			<div id="projects">
+				<SectionTitle title="Projects" />
+				<div>
+					{projects.map((project) => (
+						<Project key={project.id} project={project} />
+					))}
+				</div>
+			</div>
 			<div id="about" className="pt-10">
 				<SectionTitle title="About Me" />
 				<div className="py-5 px-8 my-5 text-lg">
@@ -73,13 +91,13 @@ export default function Home({ services, user }) {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-	const protocol = req.headers["x-forwarded-proto"] || "http";
-	const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
+	const baseUrl = process.env.BASE_URL;
 	return {
 		props: {
 			services: await (await fetch(baseUrl + "/api/services")).json(),
 			user: await (await fetch(baseUrl + "/api/user")).json(),
+			projects: await (await fetch(baseUrl + "/api/projects")).json(),
 		},
 	};
 };
