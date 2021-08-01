@@ -66,7 +66,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 			</div>
 			<div id="projects">
 				<SectionTitle title="Projects" />
-				<div>
+				<div className="flex flex-wrap justify-center mt-10">
 					{projects.map((project) => (
 						<Project key={project.id} project={project} />
 					))}
