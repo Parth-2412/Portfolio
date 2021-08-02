@@ -24,7 +24,7 @@ export default (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
 			description:
 				"A github clone made with the objective to replicate \
 				the UI while also pulling data from GitHub and integrating \
-				Login with Gitub.",
+				Login with GitHub.",
 			image: "/projects/github-clone.png",
 			liveDemo: "https://github-clone-7d9f6.web.app/",
 			skills: ["ReactJS", "TailwindCSS", "Firebase"],

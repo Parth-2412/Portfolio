@@ -22,7 +22,7 @@ interface StaticPropsResult {
 
 export default function Home({ services, user, projects }: StaticPropsResult) {
 	return (
-		<div className="space-y-20">
+		<div className="space-y-24">
 			<Head>
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
@@ -66,7 +66,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 			</div>
 			<div id="projects">
 				<SectionTitle title="Projects" />
-				<div className="grid xl:grid-cols-3 md:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-10 mt-10">
+				<div className="grid xl:grid-cols-3 lmd:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-10 mt-10">
 					{projects.map((project) => (
 						<Project key={project.id} project={project} />
 					))}
