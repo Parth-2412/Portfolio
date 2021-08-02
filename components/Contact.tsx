@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import FormInput from "./FormInput";
 import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
-function Contact() {
+import React from "react";
+function Contact({ divRef }: { divRef: React.RefObject<HTMLDivElement> }) {
 	const {
 		register,
 		handleSubmit,
@@ -11,9 +12,8 @@ function Contact() {
 			errors: { name, email, description },
 		},
 	} = useForm();
-
 	return (
-		<div id="contact" className="">
+		<div ref={divRef} className="">
 			<SectionTitle title="Let's get in touch" />
 			<div className="flex flex-col lg:flex-row lg:space-x-20 xl:space-x-0 lg:justify-between">
 				<div className="space-y-10 my-14">

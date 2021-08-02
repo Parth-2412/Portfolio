@@ -1,9 +1,9 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { createRef, useEffect } from "react";
 import Service from "../components/Service";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import SectionTitle from "../components/SectionTitle";
 import { HeartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
@@ -19,8 +19,39 @@ interface StaticPropsResult {
 	user: IUser;
 	projects: IProject[];
 }
-
+const refs: {
+	[key: string]: React.RefObject<HTMLDivElement>;
+} = {};
+["services", "about", "projects", "contact"].map((hash) => {
+	refs[hash] = createRef<HTMLDivElement>();
+});
 export default function Home({ services, user, projects }: StaticPropsResult) {
+	useEffect(() => {
+		if (process.browser) {
+			window.onhashchange = () => {
+				const hash = window.location.hash.slice(1);
+				if (hash) {
+					const element = refs[hash]?.current;
+					if (!element) return;
+					window.scrollTo({
+						top: element.offsetTop - 128,
+						left: 0,
+						behavior: "smooth",
+					});
+				} else if (window.location.hash === "#") {
+					window.scrollTo({
+						top: 0,
+						left: 0,
+						behavior: "smooth",
+					});
+				}
+			};
+			return () => {
+				window.onhashchange = () => {};
+			};
+		}
+	}, []);
+
 	return (
 		<div className="space-y-24">
 			<Head>
@@ -54,7 +85,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 				</div>
 			</div>
 
-			<div id="services">
+			<div ref={refs["services"]}>
 				<SectionTitle title="What I can offer" />
 				<div className="flex mt-10 justify-center flex-grow">
 					<div className="flex justify-evenly space-x-5 flex-wrap">
@@ -64,7 +95,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 					</div>
 				</div>
 			</div>
-			<div id="projects">
+			<div ref={refs["projects"]}>
 				<SectionTitle title="Projects" />
 				<div className="grid xl:!grid-cols-3 lmd:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-10 mt-10">
 					{projects.map((project) => (
@@ -72,7 +103,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 					))}
 				</div>
 			</div>
-			<div id="about" className="pt-10">
+			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />
 				<div className="py-5 px-8 my-5 text-lg">
 					Hi there!! I am {user.name}, a {user.age} years old full
@@ -86,7 +117,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 					</div>
 				</div>
 			</div>
-			<Contact />
+			<Contact divRef={refs["contact"]} />
 		</div>
 	);
 }
