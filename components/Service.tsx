@@ -8,7 +8,7 @@ function Service({ icon, name, description }: IService) {
 				dangerouslySetInnerHTML={{ __html: icon }}
 				className="w-20 h-20 text-primary"
 			></div>
-			<div className="mt-7 mb-3 text-xl">{name}</div>
+			<div className="mt-7 mb-3 text-xl font-medium">{name}</div>
 			<div className="text-sm max-w-prose">{description}</div>
 		</div>
 	);
