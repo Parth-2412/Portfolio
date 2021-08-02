@@ -10,7 +10,7 @@ function Project({
 }: Props) {
 	return (
 		<a href={link} className="self-stretch !max-w-md" target="_blank">
-			<div className="flex flex-col w-full h-full shadow hover:shadow-lg rounded-xl cursor-pointer">
+			<div className="flex flex-col w-full h-full shadow-lg hover:shadow-2xl rounded-xl cursor-pointer">
 				<Image
 					src={image}
 					alt={title}
