@@ -4,4 +4,6 @@ export interface IProject {
 	description: string;
 	image: string;
 	liveDemo: string;
+	skills: string[];
+	features: string[];
 }
