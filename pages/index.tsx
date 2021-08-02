@@ -91,13 +91,15 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 	);
 }
 
-export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
-	const baseUrl = process.env.BASE_URL;
-	return {
-		props: {
-			services: await (await fetch(baseUrl + "/api/services")).json(),
-			user: await (await fetch(baseUrl + "/api/user")).json(),
-			projects: await (await fetch(baseUrl + "/api/projects")).json(),
-		},
+export const getServerSideProps: GetServerSideProps<StaticPropsResult> =
+	async ({ req }) => {
+		const protocol = req.headers["x-forwarded-proto"] || "http";
+		const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
+		return {
+			props: {
+				services: await (await fetch(baseUrl + "/api/services")).json(),
+				user: await (await fetch(baseUrl + "/api/user")).json(),
+				projects: await (await fetch(baseUrl + "/api/projects")).json(),
+			},
+		};
 	};
-};
