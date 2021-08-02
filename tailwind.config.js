@@ -15,6 +15,9 @@ module.exports = {
 				"8xl": "88rem",
 				"9xl": "96rem",
 			},
+			screens: {
+				lmd: "896px",
+			},
 		},
 	},
 	variants: {
