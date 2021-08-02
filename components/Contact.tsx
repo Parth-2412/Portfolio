@@ -4,7 +4,7 @@ import FormInput from "./FormInput";
 import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
 import React from "react";
-function Contact({ divRef }: { divRef: React.RefObject<HTMLDivElement> }) {
+const Contact = React.forwardRef((props, ref) => {
 	const {
 		register,
 		handleSubmit,
@@ -13,7 +13,7 @@ function Contact({ divRef }: { divRef: React.RefObject<HTMLDivElement> }) {
 		},
 	} = useForm();
 	return (
-		<div ref={divRef} className="">
+		<div ref={ref as any} className="">
 			<SectionTitle title="Let's get in touch" />
 			<div className="flex flex-col lg:flex-row lg:space-x-20 xl:space-x-0 lg:justify-between">
 				<div className="space-y-10 my-14">
@@ -139,6 +139,6 @@ function Contact({ divRef }: { divRef: React.RefObject<HTMLDivElement> }) {
 			</div>
 		</div>
 	);
-}
+});
 
 export default Contact;

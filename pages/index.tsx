@@ -13,19 +13,26 @@ import Project from "../components/Project";
 import IService from "../interfaces/IService";
 import IUser from "../interfaces/IUser";
 import { IProject } from "../interfaces/IProject";
+import { ITestimonial } from "../interfaces/ITestimonial";
 
 interface StaticPropsResult {
 	services: IService[];
 	user: IUser;
 	projects: IProject[];
+	testimonials: ITestimonial[];
 }
 const refs: {
 	[key: string]: React.RefObject<HTMLDivElement>;
 } = {};
-["services", "about", "projects", "contact"].map((hash) => {
+["services", "about", "projects", "contact", "testimonials"].map((hash) => {
 	refs[hash] = createRef<HTMLDivElement>();
 });
-export default function Home({ services, user, projects }: StaticPropsResult) {
+export default function Home({
+	services,
+	user,
+	projects,
+	testimonials,
+}: StaticPropsResult) {
 	useEffect(() => {
 		if (process.browser) {
 			window.onhashchange = () => {
@@ -103,6 +110,10 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 					))}
 				</div>
 			</div>
+			<div ref={refs["testimonials"]}>
+				<SectionTitle title="What trusted clients say" />
+				<div></div>
+			</div>
 			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />
 				<div className="py-5 md:px-8 my-5 sm:text-lg">
@@ -117,7 +128,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 					</div>
 				</div>
 			</div>
-			<Contact divRef={refs["contact"]} />
+			<Contact ref={refs["contact"]} />
 		</div>
 	);
 }
@@ -131,6 +142,9 @@ export const getServerSideProps: GetServerSideProps<StaticPropsResult> =
 				services: await (await fetch(baseUrl + "/api/services")).json(),
 				user: await (await fetch(baseUrl + "/api/user")).json(),
 				projects: await (await fetch(baseUrl + "/api/projects")).json(),
+				testimonials: await (
+					await fetch(baseUrl + "/api/testimonials")
+				).json(),
 			},
 		};
 	};

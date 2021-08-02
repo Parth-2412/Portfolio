@@ -22,8 +22,8 @@ function Header() {
 						<NavLink title="Home" href="#" />,
 						<NavLink title="About" href="#about" />,
 						<NavLink title="Services" href="#services" />,
-						<NavLink title="Projects" href="/#projects" />,
-						<NavLink title="Testimonials" href="/" />,
+						<NavLink title="Projects" href="#projects" />,
+						<NavLink title="Testimonials" href="#testimonials" />,
 						<NavLink title="Contact" href="#contact" />,
 					].map((Link, i) => ({
 						...Link,
