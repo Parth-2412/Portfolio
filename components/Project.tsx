@@ -9,7 +9,11 @@ function Project({
 	project: { title, image, description, liveDemo: link, skills, features },
 }: Props) {
 	return (
-		<a href={link} className="self-stretch !max-w-md" target="_blank">
+		<a
+			href={link}
+			className="self-stretch !max-w-md mx-auto"
+			target="_blank"
+		>
 			<div className="flex flex-col w-full h-full shadow-lg hover:shadow-2xl rounded-xl cursor-pointer">
 				<Image
 					src={image}
