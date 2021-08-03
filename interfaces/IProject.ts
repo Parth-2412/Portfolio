@@ -6,4 +6,5 @@ export interface IProject {
 	liveDemo: string;
 	skills: string[];
 	features: string[];
+	codeLink?: string;
 }

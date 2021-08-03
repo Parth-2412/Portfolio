@@ -6,35 +6,38 @@ interface Props {
 }
 
 function Project({
-	project: { title, image, description, liveDemo: link, skills, features },
+	project: { title, image, description, liveDemo: link, codeLink },
 }: Props) {
+	const linkClassname = "font-medium hover:text-gray-700";
 	return (
-		<a
-			href={link}
-			className="self-stretch !max-w-md mx-auto"
-			target="_blank"
-		>
-			<div className="flex flex-col w-full h-full shadow-lg hover:shadow-2xl rounded-xl cursor-pointer">
-				<Image
-					src={image}
-					alt={title}
-					width={320}
-					height={180}
-					className="!rounded-t-xl !w-full"
-					layout="responsive"
-				/>
-				<hr />
-				<div className="p-8 justify-center space-y-3 my-2">
-					<div className="text-2xl font-semibold">{title}</div>
-					<div className="text-sm lg:text-base text-gray-500 w-full">
-						<div
-							className="whitespace-pre-line"
-							dangerouslySetInnerHTML={{ __html: description }}
-						></div>
-					</div>
+		<div className="flex self-stretch !max-w-md mx-auto flex-col w-full h-full shadow-lg rounded-xl cursor-pointer">
+			<Image
+				src={image}
+				alt={title}
+				width={320}
+				height={180}
+				className="!rounded-t-xl !w-full"
+				layout="responsive"
+			/>
+			<hr />
+			<div className="p-8 justify-center space-y-3 my-2">
+				<div className="text-2xl font-semibold">{title}</div>
+				<div className="text-sm lg:text-base text-gray-500 w-full">
+					<div
+						className="whitespace-pre-line"
+						dangerouslySetInnerHTML={{ __html: description }}
+					></div>
 				</div>
 			</div>
-		</a>
+			<div className="flex self-end space-x-5 mt-auto px-8 mb-4">
+				<a href={link} target="_blank" className={linkClassname}>
+					Live Demo
+				</a>
+				<a href={codeLink} target="_blank" className={linkClassname}>
+					Code
+				</a>
+			</div>
+		</div>
 	);
 }
 

@@ -17,6 +17,7 @@ export default (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
 				"CRUD Functionality",
 				"Realtime",
 			],
+			codeLink: "https://github.com/Parth-2412/Google-Docs-Clone",
 		},
 		{
 			id: 2,
@@ -29,6 +30,7 @@ export default (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
 			liveDemo: "https://github-clone-7d9f6.web.app/",
 			skills: ["ReactJS", "TailwindCSS", "Firebase"],
 			features: ["Login with Github"],
+			codeLink: "https://github.com/Parth-2412/Github-Clone",
 		},
 		{
 			id: 3,
@@ -45,6 +47,7 @@ export default (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
 				"About",
 				"Testimonials",
 			],
+			codeLink: "https://github.com/Parth-2412/Portfolio",
 		},
 	]);
 };
