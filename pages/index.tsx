@@ -105,7 +105,7 @@ export default function Home({ services, user, projects }: StaticPropsResult) {
 			</div>
 			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />
-				<div className="py-5 px-8 my-5 text-lg">
+				<div className="py-5 md:px-8 my-5 sm:text-lg">
 					Hi there!! I am {user.name}, a {user.age} years old full
 					stack web developer. I really love learning and making new
 					things. That is what encouraged me into programming. My goal
