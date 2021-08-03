@@ -15,6 +15,7 @@ import IUser from "../interfaces/IUser";
 import { IProject } from "../interfaces/IProject";
 import { ITestimonial } from "../interfaces/ITestimonial";
 import Testimonial from "../components/Testimonial";
+import AllTestimonials from "../components/AllTestimonials";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -111,15 +112,10 @@ export default function Home({
 					))}
 				</div>
 			</div>
-			<div ref={refs["testimonials"]}>
-				<SectionTitle title="What trusted clients say" />
-				{testimonials.map((testimonial) => (
-					<Testimonial
-						testimonial={testimonial}
-						key={testimonial.id}
-					/>
-				))}
-			</div>
+			<AllTestimonials
+				ref={refs["testimonials"]}
+				testimonials={testimonials}
+			/>
 			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />
 				<div className="py-5 md:px-8 my-5 sm:text-lg">
