@@ -14,6 +14,7 @@ import IService from "../interfaces/IService";
 import IUser from "../interfaces/IUser";
 import { IProject } from "../interfaces/IProject";
 import { ITestimonial } from "../interfaces/ITestimonial";
+import Testimonial from "../components/Testimonial";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -112,7 +113,12 @@ export default function Home({
 			</div>
 			<div ref={refs["testimonials"]}>
 				<SectionTitle title="What trusted clients say" />
-				<div></div>
+				{testimonials.map((testimonial) => (
+					<Testimonial
+						testimonial={testimonial}
+						key={testimonial.id}
+					/>
+				))}
 			</div>
 			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />

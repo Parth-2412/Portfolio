@@ -3,7 +3,7 @@
  */
 const nextConfig = {
 	images: {
-		domains: ["upwork.com"],
+		domains: ["www.upwork.com"],
 	},
 };
 
