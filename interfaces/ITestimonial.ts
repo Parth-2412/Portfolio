@@ -4,4 +4,5 @@ export interface ITestimonial {
 	logo: string;
 	link?: string;
 	id: number;
+	source: string;
 }
