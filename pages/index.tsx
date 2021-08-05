@@ -14,7 +14,6 @@ import IService from "../interfaces/IService";
 import IUser from "../interfaces/IUser";
 import { IProject } from "../interfaces/IProject";
 import { ITestimonial } from "../interfaces/ITestimonial";
-import Testimonial from "../components/Testimonial";
 import AllTestimonials from "../components/AllTestimonials";
 import { ISkill } from "../interfaces/ISkill";
 import Skill from "../components/Skill";
