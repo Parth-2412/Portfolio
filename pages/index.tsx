@@ -61,7 +61,9 @@ export default function Home({
 					});
 				}
 			};
+			window.onload = window.onhashchange;
 			return () => {
+				window.onload = () => {};
 				window.onhashchange = () => {};
 			};
 		}
