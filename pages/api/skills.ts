@@ -6,37 +6,44 @@ export default (req: NextApiRequest, res: NextApiResponse<ISkill[]>) => {
 		{
 			id: "react",
 			title: "ReactJS",
-			expertise: 80,
+			logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+			link: "https://reactjs.org/",
 		},
 		{
 			id: "js",
 			title: "JavaScript",
-			expertise: 90,
+			logo: "https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png",
+			link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
 		},
 		{
 			id: "ts",
 			title: "TypeScript",
-			expertise: 80,
+			logo: "https://www.typescriptlang.org/favicon.ico",
+			link: "https://www.typescriptlang.org/",
 		},
 		{
 			id: "tailwind",
 			title: "TailwindCSS",
-			expertise: 90,
+			logo: "https://tailwindcss.com/favicon.ico",
+			link: "https://tailwindcss.com/",
 		},
 		{
 			id: "node",
 			title: "NodeJS",
-			expertise: 80,
+			logo: "https://nodejs.org/static/images/favicons/favicon.ico",
+			link: "https://nodejs.org/",
 		},
 		{
 			id: "nextjs",
 			title: "NextJS",
-			expertise: 80,
+			logo: "https://cdn.worldvectorlogo.com/logos/nextjs-3.svg",
+			link: "https://nextjs.org/",
 		},
 		{
 			id: "redux",
 			title: "Redux",
-			expertise: 60,
+			logo: "https://redux.js.org/img/redux.svg",
+			link: "https://redux.js.org/",
 		},
 	]);
 };

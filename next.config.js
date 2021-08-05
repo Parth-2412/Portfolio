@@ -4,6 +4,7 @@
 const nextConfig = {
 	images: {
 		domains: ["www.upwork.com"],
+		dangerouslyAllowAllDomains: true,
 	},
 };
 

@@ -120,7 +120,7 @@ export default function Home({
 			</div>
 			<div ref={refs["skills"]}>
 				<SectionTitle title="Skills" />
-				<div className="flex flex-col space-y-7 p-10">
+				<div className="flex flex-wrap justify-around p-10">
 					{skills
 						// .sort((a, b) => b.expertise - a.expertise)
 						.map((skill) => (

@@ -1,18 +1,17 @@
 import { ISkill } from "../interfaces/ISkill";
 
-function Skill({ skill: { title, expertise } }: { skill: ISkill }) {
+function Skill({ skill: { title, logo, link } }: { skill: ISkill }) {
 	return (
-		<div className="flex flex-col items-start space-y-2">
-			<p className="text-lg font-medium">{title}</p>
-			<div className="bg-gray-300 md:w-1/2 w-5/6 h-7">
-				<div
-					className="bg-primary opacity-80 h-full"
-					style={{
-						width: `${expertise}%`,
-					}}
-				></div>
+		<a href={link}>
+			<div className="flex rounded-lg flex-col hover:opac0 group items-center cursor-pointer my-6 mx-8 space-y-2">
+				<img
+					src={logo}
+					loading="lazy"
+					className="h-14 object-contain"
+				/>
+				<p className="font-medium group-hover:text-gray-700">{title}</p>
 			</div>
-		</div>
+		</a>
 	);
 }
 

@@ -1,5 +1,6 @@
 export interface ISkill {
 	id: string;
 	title: string;
-	expertise: number;
+	logo: string;
+	link: string;
 }
