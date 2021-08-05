@@ -16,24 +16,30 @@ import { IProject } from "../interfaces/IProject";
 import { ITestimonial } from "../interfaces/ITestimonial";
 import Testimonial from "../components/Testimonial";
 import AllTestimonials from "../components/AllTestimonials";
+import { ISkill } from "../interfaces/ISkill";
+import Skill from "../components/Skill";
 
 interface StaticPropsResult {
 	services: IService[];
 	user: IUser;
 	projects: IProject[];
 	testimonials: ITestimonial[];
+	skills: ISkill[];
 }
 const refs: {
 	[key: string]: React.RefObject<HTMLDivElement>;
 } = {};
-["services", "about", "projects", "contact", "testimonials"].map((hash) => {
-	refs[hash] = createRef<HTMLDivElement>();
-});
+["services", "about", "skills", "projects", "contact", "testimonials"].map(
+	(hash) => {
+		refs[hash] = createRef<HTMLDivElement>();
+	}
+);
 export default function Home({
 	services,
 	user,
 	projects,
 	testimonials,
+	skills,
 }: StaticPropsResult) {
 	useEffect(() => {
 		if (process.browser) {
@@ -112,6 +118,16 @@ export default function Home({
 					))}
 				</div>
 			</div>
+			<div ref={refs["skills"]}>
+				<SectionTitle title="Skills" />
+				<div className="flex flex-col space-y-7 p-10">
+					{skills
+						// .sort((a, b) => b.expertise - a.expertise)
+						.map((skill) => (
+							<Skill key={skill.id} skill={skill} />
+						))}
+				</div>
+			</div>
 			<AllTestimonials
 				ref={refs["testimonials"]}
 				testimonials={testimonials}
@@ -147,6 +163,7 @@ export const getServerSideProps: GetServerSideProps<StaticPropsResult> =
 				testimonials: await (
 					await fetch(baseUrl + "/api/testimonials")
 				).json(),
+				skills: await (await fetch(baseUrl + "/api/skills")).json(),
 			},
 		};
 	};

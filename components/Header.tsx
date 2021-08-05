@@ -10,10 +10,10 @@ function Header() {
 				<Logo />
 				<div
 					className={
-						"bg-white md:flex-grow md:justify-end shadow-md md:shadow-none \
-						 w-full md:space-x-7 space-y-7 md:space-y-0 pb-4 md:pb-0 absolute \
-						  md:static left-0 pl-16 md:pl-0 pt-5 md:pt-0 top-16 flex-col \
-						  md:flex-row md:flex items-center\
+						"bg-white lg:flex-grow lg:justify-end shadow-md lg:shadow-none \
+						 w-full lg:space-x-7 space-y-7 lg:space-y-0 pb-4 lg:pb-0 absolute \
+						  lg:static left-0 pl-16 lg:pl-0 pt-5 lg:pt-0 top-16 flex-col \
+						  lg:flex-row lg:flex items-center\
 						 " +
 						(showMenu ? "" : "hidden")
 					}
@@ -23,6 +23,7 @@ function Header() {
 						<NavLink title="About" href="#about" />,
 						<NavLink title="Services" href="#services" />,
 						<NavLink title="Projects" href="#projects" />,
+						<NavLink title="Skills" href="#skills" />,
 						<NavLink title="Testimonials" href="#testimonials" />,
 						<NavLink title="Contact" href="#contact" />,
 					].map((Link, i) => ({
@@ -43,7 +44,7 @@ function Header() {
 						onClick={() => {
 							setShowMenu((prevShowMenu) => !prevShowMenu);
 						}}
-						className="h-8 w-8  block hover:shadow-2xl md:hidden text-black rounded-3xl cursor-pointer "
+						className="h-8 w-8  block hover:shadow-2xl lg:hidden text-black rounded-3xl cursor-pointer "
 					/>
 				</div>
 			</div>
