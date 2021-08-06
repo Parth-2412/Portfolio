@@ -74,7 +74,7 @@ export default function Home({
 	}, []);
 
 	return (
-		<div className="space-y-64">
+		<div className="space-y-24">
 			<Head>
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
