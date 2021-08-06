@@ -11,7 +11,7 @@ function Project({
 	const linkClassname = "font-medium hover:text-gray-700";
 	return (
 		<div
-			data-aos="zoom-in"
+			data-aos="fade-up"
 			className="flex self-stretch !max-w-md mx-auto flex-col w-full h-full shadow-lg rounded-xl "
 		>
 			<Image

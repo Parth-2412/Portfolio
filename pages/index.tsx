@@ -44,6 +44,9 @@ export default function Home({
 }: StaticPropsResult) {
 	useEffect(() => {
 		AOS.init();
+		Object.values(refs).forEach((ref) => {
+			// ref.current.setAttribute("data-aos", "slide-right");
+		});
 	}, []);
 	useEffect(() => {
 		if (process.browser) {
@@ -89,12 +92,11 @@ export default function Home({
 							I'm a full stack web developer and bot developer.
 						</div>
 					</div>
-					<Link href="#contact">
-						<Button className="text-lg">
-							<p>Let's talk</p>
-							<ArrowRightIcon className="w-5" />
-						</Button>
-					</Link>
+
+					<Button className="text-lg">
+						<p>Let's talk</p>
+						<ArrowRightIcon className="w-5" />
+					</Button>
 				</div>
 				<div className="hidden lg:block">
 					<Image
@@ -140,7 +142,10 @@ export default function Home({
 			/>
 			<div ref={refs["about"]} className="pt-10">
 				<SectionTitle title="About Me" />
-				<div className="py-5 md:px-8 my-5 sm:text-lg">
+				<div
+					className="py-5 md:px-8 my-5 sm:text-lg"
+					data-aos="zoom-in"
+				>
 					Hi there!! I am {user.name}, a {user.age} years old full
 					stack web developer. I really love learning and making new
 					things. That is what encouraged me into programming. My goal
