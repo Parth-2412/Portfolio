@@ -21,7 +21,10 @@ const Contact = React.forwardRef((props, ref) => {
 	return (
 		<div ref={ref as any} className="">
 			<SectionTitle title="Let's get in touch" />
-			<div className="flex flex-col lg:flex-row lg:space-x-20 xl:space-x-0 lg:justify-between">
+			<div
+				data-aos="fade-right"
+				className="flex flex-col lg:flex-row lg:space-x-20 xl:space-x-0 lg:justify-between"
+			>
 				<div className="space-y-10 my-14">
 					<div className="max-w-md">
 						I am always open to discuss your project. Please don't
