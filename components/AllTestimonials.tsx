@@ -36,7 +36,6 @@ const AllTestimonials = React.forwardRef<
 				className="max-w-7xl"
 				centerMode={isNotMobile}
 				centerSlidePercentage={60}
-				// dynamicHeight
 			>
 				{testimonials.map((testimonial, i) => {
 					return (
@@ -52,7 +51,22 @@ const AllTestimonials = React.forwardRef<
 					);
 				})}
 			</Carousel>
-			<div className="flex space-x-2 text-gray-400 mt-4">
+			<div className="flex space-x-3 mt-4 md:hidden">
+				{new Array(testimonials.length).fill(0).map((data, i) => {
+					return (
+						<div
+							key={i}
+							onClick={() => {
+								setSelected(i);
+							}}
+							className={`h-2 cursor-pointer rounded-full  w-2 ${
+								selected === i ? "bg-gray-400" : "bg-gray-800"
+							}`}
+						></div>
+					);
+				})}
+			</div>
+			<div className="md:flex hidden space-x-2 text-gray-400 mt-4">
 				<ArrowLeftIcon
 					className={arrowClassName}
 					onClick={() => {
