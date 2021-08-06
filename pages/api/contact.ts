@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
+import { checkAuth } from "../../util";
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK;
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default checkAuth(async (req: NextApiRequest, res: NextApiResponse) => {
 	if (req.method === "POST") {
 		const { name, email, description } = req.body;
 		if (!name || !email || !description) {
@@ -38,4 +39,4 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 	} else {
 		return res.status(400).send({});
 	}
-};
+});
