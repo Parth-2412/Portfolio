@@ -11,7 +11,7 @@ export default checkAuth(
 			{
 				name: "Web development",
 				description:
-					"Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit",
+					"Need help with making a website for your business? I can create just the website for you!",
 				icon: ReactDOMServer.renderToStaticMarkup(
 					<DesktopComputerIcon />
 				).toString(),
@@ -20,7 +20,7 @@ export default checkAuth(
 			{
 				name: "Web design",
 				description:
-					"Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit",
+					"A website with great features but the worst design isn't cool at all. Reach out if you want to have a cool design to attract your users! ",
 				icon: ReactDOMServer.renderToStaticMarkup(
 					<PencilIcon />
 				).toString(),
@@ -29,7 +29,7 @@ export default checkAuth(
 			{
 				name: "App development",
 				description:
-					"Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit",
+					"Apps are changing peoples life throughout the world. Want to scale your business even more with apps? Don't hesitate to contact.",
 				icon: ReactDOMServer.renderToStaticMarkup(
 					<DeviceMobileIcon />
 				).toString(),
@@ -38,7 +38,7 @@ export default checkAuth(
 			{
 				name: "Bots development",
 				description:
-					"Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor, nisi elit",
+					"Automation, scraping and more, bots have unlimited potential. I can help you if you want a really cool bot ",
 				icon: ReactDOMServer.renderToStaticMarkup(
 					<GlobeIcon />
 				).toString(),
