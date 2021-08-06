@@ -1,12 +1,11 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Image from "next/image";
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useMemo } from "react";
 import Service from "../components/Service";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import SectionTitle from "../components/SectionTitle";
 import { HeartIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 import Contact from "../components/Contact";
 import Button from "../components/Button";
 import Project from "../components/Project";
@@ -19,6 +18,11 @@ import { ISkill } from "../interfaces/ISkill";
 import Skill from "../components/Skill";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { data as services } from "./api/services";
+import { data as projects } from "./api/projects";
+import { data as skills } from "./api/skills";
+import { data as testimonials } from "./api/testimonials";
+import { dob } from "./api/user";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -47,6 +51,12 @@ export default function Home({
 		Object.values(refs).forEach((ref) => {
 			// ref.current.setAttribute("data-aos", "slide-right");
 		});
+	}, []);
+	const now = useMemo(() => {
+		const date = new Date();
+		date.setMonth(6);
+		date.setDate(24);
+		return date;
 	}, []);
 	useEffect(() => {
 		if (process.browser) {
@@ -151,11 +161,12 @@ export default function Home({
 					className="py-5 md:px-8 my-5 sm:text-lg"
 					data-aos="zoom-in"
 				>
-					Hi there!! I am {user.name}, a {user.age} years old full
-					stack web developer. I really love learning and making new
-					things. That is what encouraged me into programming. My goal
-					is to become a successful software developer and help people
-					by making useful tools for them.
+					Hi there!! I am {user.name}, a{" "}
+					{now.getFullYear() - user.yearOfBirth} years old full stack
+					web developer. I really love learning and making new things.
+					That is what encouraged me into programming. My goal is to
+					become a successful software developer and help people by
+					making useful tools for them.
 					<div className="my-3 flex items-center space-x-2">
 						<HeartIcon className="w-10" />
 						<p>I love programming, football and anime!</p>
@@ -167,19 +178,17 @@ export default function Home({
 	);
 }
 
-export const getServerSideProps: GetServerSideProps<StaticPropsResult> =
-	async ({ req }) => {
-		const protocol = req.headers["x-forwarded-proto"] || "http";
-		const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-		return {
-			props: {
-				services: await (await fetch(baseUrl + "/api/services")).json(),
-				user: await (await fetch(baseUrl + "/api/user")).json(),
-				projects: await (await fetch(baseUrl + "/api/projects")).json(),
-				testimonials: await (
-					await fetch(baseUrl + "/api/testimonials")
-				).json(),
-				skills: await (await fetch(baseUrl + "/api/skills")).json(),
+export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
+	return {
+		props: {
+			services,
+			skills,
+			projects,
+			testimonials,
+			user: {
+				yearOfBirth: dob.getFullYear(),
+				name: "Parth",
 			},
-		};
+		},
 	};
+};
