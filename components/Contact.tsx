@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import FormInput from "./FormInput";
 import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
 const Contact = React.forwardRef((props, ref) => {
 	const {
 		register,
@@ -12,6 +14,10 @@ const Contact = React.forwardRef((props, ref) => {
 			errors: { name, email, description },
 		},
 	} = useForm();
+	const [message, setMessage] = useState<null | {
+		message: string;
+		error: boolean;
+	}>(null);
 	return (
 		<div ref={ref as any} className="">
 			<SectionTitle title="Let's get in touch" />
@@ -30,13 +36,34 @@ const Contact = React.forwardRef((props, ref) => {
 						</div>
 					</div>
 				</div>
-				<div className="flex-grow lg:max-w-xl">
+				<div className="flex-grow lg:max-w-xl relative">
 					<div className="text-gray-600 font-semibold mb-5">
 						Or use this form
 					</div>
 					<form
-						onSubmit={handleSubmit((data) => {
-							console.log(data);
+						onSubmit={handleSubmit((data, e) => {
+							axios
+								.post("/api/contact", {
+									...data,
+								})
+								.then(() => {
+									setMessage({
+										message:
+											"Thank you for contacting me!! I will get back to you in 1-2 days through email",
+										error: false,
+									});
+								})
+								.catch(() => {
+									setMessage({
+										message:
+											"Error contacting. Please try again",
+										error: true,
+									});
+								});
+							setTimeout(() => {
+								setMessage(null);
+							}, 5000);
+							e.target.reset();
 						})}
 						className="flex flex-col text-sm"
 					>
@@ -75,6 +102,19 @@ const Contact = React.forwardRef((props, ref) => {
 							Get in touch
 						</Button>
 					</form>
+					{message && (
+						<div className="fixed bottom-20 z-10 left-0 right-0 text-gray-100">
+							{!message.error ? (
+								<p className="rounded-lg px-5 py-4 absolute right-10 bottom-5 mx-auto max-w-xl md:w-auto w-4/5 bg-[#28a745]">
+									{message.message}
+								</p>
+							) : (
+								<p className="rounded-lg px-5 py-4 absolute right-10 bottom-5 mx-auto max-w-xl md:w-auto w-4/5 bg-[#c82333]">
+									{message.message}
+								</p>
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 			<p className="hidden lg:block mt-10 text-gray-700 font-medium">
