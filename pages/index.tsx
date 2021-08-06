@@ -93,7 +93,12 @@ export default function Home({
 						</div>
 					</div>
 
-					<Button className="text-lg">
+					<Button
+						className="text-lg"
+						onClick={() => {
+							window.location.hash = "#contact";
+						}}
+					>
 						<p>Let's talk</p>
 						<ArrowRightIcon className="w-5" />
 					</Button>
