@@ -10,7 +10,10 @@ function Project({
 }: Props) {
 	const linkClassname = "font-medium hover:text-gray-700";
 	return (
-		<div className="flex self-stretch !max-w-md mx-auto flex-col w-full h-full shadow-lg rounded-xl ">
+		<div
+			data-aos="zoom-in"
+			className="flex self-stretch !max-w-md mx-auto flex-col w-full h-full shadow-lg rounded-xl "
+		>
 			<Image
 				src={image}
 				alt={title}

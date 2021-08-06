@@ -17,6 +17,8 @@ import { ITestimonial } from "../interfaces/ITestimonial";
 import AllTestimonials from "../components/AllTestimonials";
 import { ISkill } from "../interfaces/ISkill";
 import Skill from "../components/Skill";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -40,6 +42,9 @@ export default function Home({
 	testimonials,
 	skills,
 }: StaticPropsResult) {
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	useEffect(() => {
 		if (process.browser) {
 			window.onhashchange = () => {
@@ -69,7 +74,7 @@ export default function Home({
 	}, []);
 
 	return (
-		<div className="space-y-24">
+		<div className="space-y-64">
 			<Head>
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
