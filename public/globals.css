@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 * {
-	font-family: "MontSerrat";
+	font-family: "Montserrat";
 }
 html {
 	scroll-behavior: smooth;
