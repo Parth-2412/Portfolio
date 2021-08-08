@@ -35,8 +35,8 @@ export default checkAuth(async (req: NextApiRequest, res: NextApiResponse) => {
 				},
 			],
 		});
-		res.status(204).send({});
-	} else {
-		return res.status(400).send({});
-	}
+		return res.status(204).send({});
+	} 
+	res.status(400).send({});
+	
 });
