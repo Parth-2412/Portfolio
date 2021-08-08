@@ -10,7 +10,6 @@
 		"aos": "^2.3.4",
 		"axios": "^0.21.1",
 		"next": "latest",
-		"nextjs-cors": "^1.0.5",
 		"prop-types": "^15.7.2",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
