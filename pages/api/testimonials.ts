@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { ITestimonial } from "../../interfaces/ITestimonial";
-import { checkAuth } from "../../util";
 
 export const data: Array<ITestimonial> = [
 	{
@@ -28,8 +27,9 @@ export const data: Array<ITestimonial> = [
 		source: "Upwork",
 	},
 ];
-export default checkAuth(
-	(req: NextApiRequest, res: NextApiResponse<Array<ITestimonial>>) => {
-		res.status(200).send(data);
-	}
-);
+export default (
+	req: NextApiRequest,
+	res: NextApiResponse<Array<ITestimonial>>
+) => {
+	res.status(200).send(data);
+};

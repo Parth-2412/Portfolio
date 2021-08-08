@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { ISkill } from "../../interfaces/ISkill";
-import { checkAuth } from "../../util";
 
 export const data: ISkill[] = [
 	{
@@ -46,8 +45,6 @@ export const data: ISkill[] = [
 		link: "https://redux.js.org/",
 	},
 ];
-export default checkAuth(
-	(req: NextApiRequest, res: NextApiResponse<ISkill[]>) => {
-		res.send(data);
-	}
-);
+export default (req: NextApiRequest, res: NextApiResponse<ISkill[]>) => {
+	res.send(data);
+};

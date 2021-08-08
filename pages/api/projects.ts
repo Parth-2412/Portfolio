@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { IProject } from "../../interfaces/IProject";
-import { checkAuth } from "../../util";
 export const data: IProject[] = [
 	{
 		id: 1,
@@ -44,8 +43,6 @@ export const data: IProject[] = [
 	},
 ];
 
-export default checkAuth(
-	async (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
-		res.status(200).send(data);
-	}
-);
+export default (req: NextApiRequest, res: NextApiResponse<IProject[]>) => {
+	res.status(200).send(data);
+};

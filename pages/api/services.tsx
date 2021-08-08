@@ -3,7 +3,6 @@ import IService from "../../interfaces/IService";
 import ReactDOMServer from "react-dom/server";
 import { DesktopComputerIcon, PencilIcon } from "@heroicons/react/solid";
 import { DeviceMobileIcon, GlobeIcon } from "@heroicons/react/outline";
-import { checkAuth } from "../../util";
 
 export const data: Array<IService> = [
 	{
@@ -39,8 +38,6 @@ export const data: Array<IService> = [
 		id: "4",
 	},
 ];
-export default checkAuth(
-	(req: NextApiRequest, res: NextApiResponse<Array<IService>>) => {
-		res.status(200).send(data);
-	}
-);
+export default (req: NextApiRequest, res: NextApiResponse<Array<IService>>) => {
+	res.status(200).send(data);
+};
