@@ -1,5 +1,5 @@
 import React from "react";
-import IService from "../interfaces/IService";
+import { IService } from "../interfaces/IService";
 
 function Service({ icon, name, description }: IService) {
 	return (

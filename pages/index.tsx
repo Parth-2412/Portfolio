@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Image from "next/image";
-import React, { createRef, useEffect, useMemo } from "react";
+import React, { createRef, useEffect } from "react";
 import Service from "../components/Service";
 import { GetStaticProps } from "next";
 import SectionTitle from "../components/SectionTitle";
@@ -9,7 +9,7 @@ import { HeartIcon } from "@heroicons/react/outline";
 import Contact from "../components/Contact";
 import Button from "../components/Button";
 import Project from "../components/Project";
-import IService from "../interfaces/IService";
+import { IService } from "../interfaces/IService";
 import IUser from "../interfaces/IUser";
 import { IProject } from "../interfaces/IProject";
 import { ITestimonial } from "../interfaces/ITestimonial";
@@ -18,11 +18,10 @@ import { ISkill } from "../interfaces/ISkill";
 import Skill from "../components/Skill";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { data as services } from "./api/services";
-import { data as projects } from "./api/projects";
-import { data as skills } from "./api/skills";
-import { data as testimonials } from "./api/testimonials";
-import { dob } from "./api/user";
+import ServiceModal from "../models/Service";
+import SkillModal from "../models/Skill";
+import ProjectModal from "../models/Project";
+import TestimonialModal from "../models/Testimonial";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -51,12 +50,6 @@ export default function Home({
 		Object.values(refs).forEach((ref) => {
 			// ref.current.setAttribute("data-aos", "slide-right");
 		});
-	}, []);
-	const now = useMemo(() => {
-		const date = new Date();
-		date.setMonth(6);
-		date.setDate(24);
-		return date;
 	}, []);
 	useEffect(() => {
 		if (process.browser) {
@@ -128,7 +121,7 @@ export default function Home({
 				<div className="flex mt-10 justify-center flex-grow">
 					<div className="flex justify-evenly space-x-5 flex-wrap">
 						{services.map((service) => (
-							<Service key={service.id} {...service} />
+							<Service key={service.service_id} {...service} />
 						))}
 					</div>
 				</div>
@@ -137,7 +130,7 @@ export default function Home({
 				<SectionTitle title="Projects" />
 				<div className="grid xl:!grid-cols-3 lmd:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-10 mt-10">
 					{projects.map((project) => (
-						<Project key={project.id} project={project} />
+						<Project key={project.project_id} project={project} />
 					))}
 				</div>
 			</div>
@@ -147,7 +140,7 @@ export default function Home({
 					{skills
 						// .sort((a, b) => b.expertise - a.expertise)
 						.map((skill) => (
-							<Skill key={skill.id} skill={skill} />
+							<Skill key={skill.skill_id} skill={skill} />
 						))}
 				</div>
 			</div>
@@ -161,12 +154,11 @@ export default function Home({
 					className="py-5 md:px-8 my-5 sm:text-lg"
 					data-aos="zoom-in"
 				>
-					Hi there!! I am {user.name}, a{" "}
-					{now.getFullYear() - user.yearOfBirth} years old full stack
-					web developer. I really love learning and making new things.
-					That is what encouraged me into programming. My goal is to
-					become a successful software developer and help people by
-					making useful tools for them.
+					Hi there!! I am {user.name}, a full stack web developer. I
+					really love learning and making new things. That is what
+					encouraged me into programming. My goal is to become a
+					successful software developer and help people by making
+					useful tools for them.
 					<div className="my-3 flex items-center space-x-2">
 						<HeartIcon className="w-10" />
 						<p>I love programming, football and anime!</p>
@@ -179,6 +171,10 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
+	const services = await ServiceModal.find({}).lean();
+	const projects = await ProjectModal.find({}).lean();
+	const skills = await SkillModal.find({}).lean();
+	const testimonials = await TestimonialModal.find({}).lean();
 	return {
 		props: {
 			services,
@@ -186,7 +182,6 @@ export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
 			projects,
 			testimonials,
 			user: {
-				yearOfBirth: dob.getFullYear(),
 				name: "Parth",
 			},
 		},

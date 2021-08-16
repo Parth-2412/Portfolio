@@ -41,7 +41,7 @@ const AllTestimonials = React.forwardRef<
 					return (
 						<Testimonial
 							testimonial={testimonial}
-							key={testimonial.id}
+							key={testimonial.testimonial_id}
 							extraClasses={
 								isNotMobile && i !== selected
 									? "opacity-70"

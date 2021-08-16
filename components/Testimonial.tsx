@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ITestimonial } from "../interfaces/ITestimonial";
 
 function Testimonial({
-	testimonial: { logo, review, author, source, link },
+	testimonial: { review, author, source, link },
 	extraClasses = "",
 }: {
 	testimonial: ITestimonial;

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
-export default interface IService {
-	id: string;
+export interface IService {
+	service_id: string;
 	icon: string;
 	name: string;
 	description: string;

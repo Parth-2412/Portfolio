@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import IService from "../../interfaces/IService";
+import { IService } from "../../interfaces/IService";
 import ReactDOMServer from "react-dom/server";
 import { DesktopComputerIcon, PencilIcon } from "@heroicons/react/solid";
 import { DeviceMobileIcon, GlobeIcon } from "@heroicons/react/outline";
@@ -12,14 +12,14 @@ export const data: Array<IService> = [
 		icon: ReactDOMServer.renderToStaticMarkup(
 			<DesktopComputerIcon />
 		).toString(),
-		id: "1",
+		service_id: "1",
 	},
 	{
 		name: "Web design",
 		description:
 			"A website with great features but the worst design isn't cool at all. Reach out if you want to have a cool design to attract your users! ",
 		icon: ReactDOMServer.renderToStaticMarkup(<PencilIcon />).toString(),
-		id: "2",
+		service_id: "2",
 	},
 	{
 		name: "App development",
@@ -28,14 +28,14 @@ export const data: Array<IService> = [
 		icon: ReactDOMServer.renderToStaticMarkup(
 			<DeviceMobileIcon />
 		).toString(),
-		id: "3",
+		service_id: "3",
 	},
 	{
 		name: "Bots development",
 		description:
 			"Automation, scraping and more, bots have unlimited potential. I can help you if you want a really cool bot ",
 		icon: ReactDOMServer.renderToStaticMarkup(<GlobeIcon />).toString(),
-		id: "4",
+		service_id: "4",
 	},
 ];
 export default (req: NextApiRequest, res: NextApiResponse<Array<IService>>) => {

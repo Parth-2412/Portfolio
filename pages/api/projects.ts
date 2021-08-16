@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { IProject } from "../../interfaces/IProject";
 export const data: IProject[] = [
 	{
-		id: 1,
+		project_id: 1,
 		title: "Google Docs Clone",
 		description:
 			"A simple google docs clone which allows you to sign in \
@@ -18,7 +18,7 @@ export const data: IProject[] = [
 		codeLink: "https://github.com/Parth-2412/Google-Docs-Clone",
 	},
 	{
-		id: 2,
+		project_id: 2,
 		title: "Github Clone",
 		description:
 			"A github clone made with the objective to replicate \
@@ -31,7 +31,7 @@ export const data: IProject[] = [
 		codeLink: "https://github.com/Parth-2412/Github-Clone",
 	},
 	{
-		id: 3,
+		project_id: 3,
 		title: "Portfolio",
 		description:
 			"A personal programming portfolio made to showcase my projects and skills",

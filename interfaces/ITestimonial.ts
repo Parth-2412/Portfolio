@@ -1,8 +1,7 @@
 export interface ITestimonial {
 	author: string;
 	review: string;
-	logo: string;
 	link?: string;
-	id: number;
+	testimonial_id: number;
 	source: string;
 }
