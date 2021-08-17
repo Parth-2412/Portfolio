@@ -2,11 +2,9 @@ import { Schema, Model, Document } from "mongoose";
 import { ITestimonial } from "../interfaces/ITestimonial";
 import mongoose from "../mongoose";
 
-const TestimonialSchema = new Schema<
-	Document<ITestimonial>,
-	Model<ITestimonial>,
-	ITestimonial
->({
+interface TestimonialDoc extends ITestimonial, Document {}
+
+const TestimonialSchema = new Schema({
 	testimonial_id: {
 		type: Schema.Types.Number,
 		required: true,
@@ -34,4 +32,4 @@ const TestimonialSchema = new Schema<
 	},
 });
 
-export default mongoose.model<ITestimonial>("Testimonial", TestimonialSchema);
+export default mongoose.model<TestimonialDoc>("Testimonial", TestimonialSchema);

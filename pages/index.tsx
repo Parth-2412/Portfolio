@@ -38,6 +38,7 @@ const refs: {
 		refs[hash] = createRef<HTMLDivElement>();
 	}
 );
+
 export default function Home({
 	services,
 	user,
@@ -171,10 +172,37 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps<StaticPropsResult> = async () => {
-	const services = await ServiceModal.find({}).lean();
-	const projects = await ProjectModal.find({}).lean();
-	const skills = await SkillModal.find({}).lean();
-	const testimonials = await TestimonialModal.find({}).lean();
+	const services = (await ServiceModal.find({}).lean()).map((service) => {
+		const newService = { ...service };
+		delete newService.__v;
+		delete newService._id;
+		delete newService.id;
+		return newService;
+	});
+	const projects = (await ProjectModal.find({}).lean()).map((project) => {
+		const newProject = { ...project };
+		delete newProject.__v;
+		delete newProject._id;
+		delete newProject.id;
+		return newProject;
+	});
+	const skills = (await SkillModal.find({}).lean()).map((skill) => {
+		const newSkill = { ...skill };
+		delete newSkill.__v;
+		delete newSkill._id;
+		delete newSkill.id;
+		return newSkill;
+	});
+	const testimonials = (await TestimonialModal.find({}).lean()).map(
+		(testimonial) => {
+			const newTestimonial = { ...testimonial };
+			delete newTestimonial.__v;
+			delete newTestimonial._id;
+			delete newTestimonial.id;
+			return newTestimonial;
+		}
+	);
+
 	return {
 		props: {
 			services,
