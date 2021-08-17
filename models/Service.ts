@@ -1,9 +1,9 @@
-import { Schema, Model, Document } from "mongoose";
+import { Schema, Document } from "mongoose";
 import { IService } from "../interfaces/IService";
 import mongoose from "../mongoose";
 
 interface IServiceDoc extends IService, Document {}
-const serviceSchema = new Schema({
+const serviceSchema = new mongoose.Schema({
 	service_id: {
 		type: Schema.Types.String,
 		required: true,
@@ -25,4 +25,5 @@ const serviceSchema = new Schema({
 	},
 });
 
-export default mongoose.model<IServiceDoc>("Service", serviceSchema);
+export default (mongoose.models.Service as mongoose.Model<IServiceDoc>) ||
+	mongoose.model<IServiceDoc>("Service", serviceSchema);

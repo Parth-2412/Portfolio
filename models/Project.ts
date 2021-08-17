@@ -1,9 +1,10 @@
-import { Schema, Model, Document } from "mongoose";
+import { Schema, Document } from "mongoose";
+import Project from "../components/Project";
 import { IProject } from "../interfaces/IProject";
 import mongoose from "../mongoose";
 
 interface IProjectDoc extends IProject, Document {}
-const ProjectSchema = new Schema({
+const ProjectSchema = new mongoose.Schema({
 	project_id: {
 		type: Schema.Types.Number,
 		required: true,
@@ -46,4 +47,5 @@ const ProjectSchema = new Schema({
 	},
 });
 
-export default mongoose.model<IProjectDoc>("Project", ProjectSchema);
+export default (mongoose.models.Project as mongoose.Model<IProjectDoc>) ||
+	mongoose.model<IProjectDoc>("Project", ProjectSchema);

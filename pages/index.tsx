@@ -18,10 +18,10 @@ import { ISkill } from "../interfaces/ISkill";
 import Skill from "../components/Skill";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ServiceModal from "../models/Service";
-import SkillModal from "../models/Skill";
 import ProjectModal from "../models/Project";
+import ServiceModal from "../models/Service";
 import TestimonialModal from "../models/Testimonial";
+import SkillModal from "../models/Skill";
 
 interface StaticPropsResult {
 	services: IService[];
@@ -47,7 +47,9 @@ export default function Home({
 	skills,
 }: StaticPropsResult) {
 	useEffect(() => {
-		AOS.init();
+		AOS.init({
+			once: true,
+		});
 		Object.values(refs).forEach((ref) => {
 			// ref.current.setAttribute("data-aos", "slide-right");
 		});
