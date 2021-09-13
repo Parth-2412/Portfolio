@@ -83,7 +83,7 @@ export default function Home({
 	}, []);
 
 	return (
-		<div className="space-y-24">
+		<div className="sm:space-y-24 space-y-16">
 			<Head>
 				<title>Parth2412</title>
 				{/* <link rel="icon" href="/favicon.ico" /> */}
@@ -91,10 +91,10 @@ export default function Home({
 			<div className="flex items-start lg:space-x-8 space-y-14 lg:space-y-0 lg:items-center py-16 justify-between">
 				<div className="space-y-12 max-w-xl">
 					<div className="space-y-5">
-						<div className="text-3xl font-medium">
+						<div className="md:text-3xl text-2xl sm:font-medium">
 							Hi, my name is {user.name}!!
 						</div>
-						<div className="text-4xl font-semibold">
+						<div className="md:text-4xl text-3xl font-medium sm:font-semibold">
 							I'm a full stack web developer and bot developer.
 						</div>
 					</div>
@@ -131,7 +131,7 @@ export default function Home({
 			</div>
 			<div ref={refs["projects"]}>
 				<SectionTitle title="Projects" />
-				<div className="grid xl:!grid-cols-3 lmd:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-10 mt-10">
+				<div className="grid xl:!grid-cols-3 lmd:grid-cols-2 justify-center grid-cols-1 p-5 gap-y-14 gap-x-10 mt-10">
 					{projects.map((project) => (
 						<Project key={project.project_id} project={project} />
 					))}

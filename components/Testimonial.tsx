@@ -12,12 +12,11 @@ function Testimonial({
 		<a href={link}>
 			<div
 				className={
-					"md:p-12 p-5 flex flex-col cursor-pointer hover:shadow-xl justify-between items-start rounded-2xl my-5 md:mx-10 mx-2 space-y-8 shadow-md" +
-					" " +
+					"md:p-12 p-5 flex flex-col cursor-pointer hover:shadow-xl justify-between items-start rounded-2xl my-5  md:mx-10 mx-2 space-y-8 shadow-md " +
 					extraClasses
 				}
 			>
-				<p className="text-lg text-center">" {review} "</p>
+				<p className="md:text-lg text-center">" {review} "</p>
 				<div className="flex items-center space-x-4">
 					{/* <Image
 						src={logo}
@@ -25,8 +24,8 @@ function Testimonial({
 						height={50}
 						className="rounded-full"
 					/> */}
-					<div className="flex flex-col items-start">
-						<p className="font-semibold text-lg">{author}</p>
+					<div className="flex flex-col items-start space-y-2">
+						<p className="font-semibold sm:text-lg">{author}</p>
 						<p className="text-sm">{source}</p>
 					</div>
 				</div>

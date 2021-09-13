@@ -24,7 +24,9 @@ function Project({
 			/>
 			<hr />
 			<div className="p-8 justify-center space-y-3 my-2">
-				<div className="text-2xl font-semibold">{title}</div>
+				<div className="sm:text-2xl text-xl font-medium sm:font-semibold">
+					{title}
+				</div>
 				<div className="text-sm lg:text-base text-gray-500 w-full">
 					<div
 						className="whitespace-pre-line"
