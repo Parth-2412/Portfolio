@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { ITestimonial } from "../interfaces/ITestimonial";
 import SectionTitle from "./SectionTitle";
 import Testimonial from "./Testimonial";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import { Carousel } from "react-responsive-carousel";
 import { useMediaQuery } from "react-responsive";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/outline";
@@ -13,7 +13,11 @@ const AllTestimonials = React.forwardRef<
 		testimonials: ITestimonial[];
 	}
 >(({ testimonials }, ref) => {
-	const [selected, setSelected] = useState(1);
+	const [selected, setSelected] = useState(0);
+	const [centerWidthPercent, setCenterWidthPercent] = useState(0);
+	useLayoutEffect(() => {
+		setCenterWidthPercent(65);
+	}, []);
 	const isNotMobile = useMediaQuery({ query: "(min-width : 1024px)" });
 	const arrowClassName =
 		"w-10 h-8 cursor-pointer hover:text-gray-700 md:block hidden";
@@ -34,8 +38,9 @@ const AllTestimonials = React.forwardRef<
 				showThumbs={false}
 				width={"80vw"}
 				className="max-w-7xl"
+				dynamicHeight={true}
 				centerMode={isNotMobile}
-				centerSlidePercentage={60}
+				centerSlidePercentage={centerWidthPercent}
 			>
 				{testimonials.map((testimonial, i) => {
 					return (
@@ -44,7 +49,7 @@ const AllTestimonials = React.forwardRef<
 							key={testimonial.testimonial_id}
 							extraClasses={
 								isNotMobile && i !== selected
-									? "opacity-70"
+									? " opacity-60"
 									: ""
 							}
 						/>

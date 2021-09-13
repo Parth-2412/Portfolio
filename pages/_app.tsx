@@ -1,4 +1,5 @@
 import Head from "next/head";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "tailwindcss/tailwind.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
